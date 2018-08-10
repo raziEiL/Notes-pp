@@ -1,6 +1,6 @@
 [Variables]
-Item1=
-Item2=
+Item1=[ENG]#CRLF#- Organize up to 16 reminders#CRLF#- Mouse over for controls#CRLF#- Double-click to edit#CRLF#- Middle-click to copy to clipboard#CRLF#- Ctrl+Enter inserts line break.#CRLF#- Use single quote marks.#CRLF#- Skin customization: Right-click and press Notes++ settings
+Item2=[RU]#CRLF#Notes++ это:#CRLF#- Возможность создать до 16 заметок#CRLF#- Гибко настроить дизайн по вашему вкусу#CRLF#- В два клика редактировать заметки#CRLF#Примечание:#CRLF#- Наведение курсора над заметкой откроет управление#CRLF#- Клик средней кнопки мыши над заметкой скопирует текст в буфер обмена#CRLF#- Двойной клик для редактирования#CRLF#- Ctrl+Enter разрыв строки#CRLF#- Для цитат используете одиночные кавычки#CRLF#- Настройки языка и стилей: правая кнопка мыши -> Настройки Notes++
 Item3=
 Item4=
 Item5=

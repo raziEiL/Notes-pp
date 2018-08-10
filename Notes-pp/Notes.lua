@@ -1,13 +1,14 @@
 function Initialize()
 	if SKIN:GetVariable('Item16') ~= "" then
-		SKIN:Bang('!SetOption', 'Input', 'MouseOverAction', '[!SetOption Input Text "You List is Full!"][!SetOption Input SolidColor "160,0,0"][!UpdateMeter Input][!Redraw]')
-		SKIN:Bang('!SetOption', 'Input', 'MouseLeaveAction', '[!SetOption Input Text "#*Prompt*#"][!SetOption Input SolidColor "#BGColor#"][!UpdateMeter Input][!Redraw]')
-		SKIN:Bang('!SetOption Input LeftMouseUpAction ""')
+		SKIN:Bang('!SetOption', 'Item0', 'MouseOverAction', '[!SetOption Item0 Text [StringLimit#Language#]][!SetOption Item0 SolidColor "160,0,0,255"][!UpdateMeter Item0][!Redraw]')
+		SKIN:Bang('!SetOption', 'Item0', 'MouseLeaveAction', '[!SetOption Item0 Text [StringInfo#Language#]][!SetOption Item0 SolidColor "#colorItems#"][!UpdateMeter Item0][!Redraw]')
+		SKIN:Bang('!DisableMouseAction Item0 "LeftMouseDoubleClickAction"')
+		SKIN:Bang('!SetOption Item0 LeftMouseUpAction ""')
 	end
 end
 
 function AddItem()
-	local input, crlf = SKIN:GetVariable('Input'):gsub("\r\n", "#*CRLF*#")
+	local input, crlf = SKIN:GetVariable('Item0'):gsub("\r\n", "#*CRLF*#")
 	if input ~= "" then
 		for i = 1, 15 do
 			SKIN:Bang('!WriteKeyValue Variables Item'..(i+1)..' """'..SKIN:GetVariable('Item'..i):gsub("\n", "#*CRLF*#")..'""" "#CURRENTPATH#Notes.txt"')
@@ -24,7 +25,7 @@ function EditItemA(n)
 end
 
 function EditItemB(n)
-	local input = SKIN:GetVariable('Input'):gsub("\r\n", "#*CRLF*#")
+	local input = SKIN:GetVariable('Item0'):gsub("\r\n", "#*CRLF*#")
 	if input ~= "" then
 		SKIN:Bang('[!WriteKeyValue Variables Item'..n..' """'..input..'""" "#CURRENTPATH#Notes.txt"][!Refresh]')
 	else
@@ -36,12 +37,12 @@ function ClipItem(n)
 	SKIN:Bang('!SetClip "'..SKIN:GetVariable('Item'..n):gsub("\n", "\r\n")..'"')
 end
 
-function StrikeItem(n)
-	SKIN:Bang('[!WriteKeyValue Variables State'..n..' Strikethrough "#CURRENTPATH#Notes.ini"][!Refresh]')
-end
-
-function UnStrikeItem(n)
-	SKIN:Bang('[!WriteKeyValue Variables State'..n..' None "#CURRENTPATH#Notes.ini"][!Refresh]')
+function ToggleStrikeItem(n)
+	if SKIN:GetVariable('State'..n) ~= "Strikethrough" then
+		SKIN:Bang('[!WriteKeyValue Variables State'..n..' Strikethrough "#CURRENTPATH#Notes.ini"][!Refresh]')
+	else
+		SKIN:Bang('[!WriteKeyValue Variables State'..n..' None "#CURRENTPATH#Notes.ini"][!Refresh]')
+	end
 end
 
 function DeleteItem(n)
