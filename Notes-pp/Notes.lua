@@ -5,6 +5,17 @@ function Initialize()
 		SKIN:Bang('!DisableMouseAction Item0 "LeftMouseDoubleClickAction"')
 		SKIN:Bang('!SetOption Item0 LeftMouseUpAction ""')
 	end
+	CalcLastItem()
+end
+
+function CalcLastItem()
+	local item
+	for i = 1, 15 do
+		if SKIN:GetVariable('Item'..i):gsub("\r\n", "#*CRLF*#") ~= "" then
+			item = i
+		end
+	end
+	SKIN:Bang('!SetVariable LastItem """'..item..'"""')
 end
 
 function AddItem()
