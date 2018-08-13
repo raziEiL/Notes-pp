@@ -24,7 +24,7 @@ Minimalistic skin for Rainmeter.
 4. Done! To access the settings, **right-click** the skin and press **Notes++ settings**
 
 ## Links:
-- [Deviantart](https://razieil.deviantart.com/art/)
+- [Deviantart](https://www.deviantart.com/razieil)
 
  ## Credits:
  - Code usages: core skin [@Eclectic-Tech](https://www.deviantart.com/eclectic-tech), lua script [@killall-q](https://www.deviantart.com/killall-q), sliders for settings [@MarcoPixel](https://github.com/MarcoPixel/Monstercat-Visualizer)
